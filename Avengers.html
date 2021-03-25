@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="w3.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="Marvel.css">
+
+</head>
+<body bgcolor="black">
+<script type="text/javascript" src="one.js"></script>
+<script type="text/javascript" src="slide.js"></script>
+<center><p style="color:white;font-family:Algerian;font-size:50px;">Avengers Gallery</p></center>
+<!-- Slide Show -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+<!-- Pictrue Section (Sildshow) -->
+<div class="mySlides w3-display-container w3-center w3-hide-small">
+    <img src="display4.jpg" style="width:75%">
+  </div>
+  <div class="mySlides w3-display-container w3-center w3-hide-small">
+    <img src="display1.jpg" style="width:75%">
+  </div>
+  <div class="mySlides w3-display-container w3-center w3-hide-small">
+    <img src="display5.jpg" style="width:75%">
+</div>
+<br>
+<div class="w3-hide-small" style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+<br>
+
+<div class="responsive">
+  <div class="img">
+      <img src="TONY.jpg" alt="Trolltunga Norway" width="300" height="200">
+    <div class="desc">Iron Man</div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="img">
+    <img src="STEVE.jpg" alt="Forest" width="300" height="200">
+    <div class="desc">Captain America</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="THOR.jpg" alt="Northern Lights" width="300" height="200">
+    <div class="desc">Thor</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="HULK.jpg" alt="Mountains" width="20px" height="50px">
+    <div class="desc">Hulk</div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="img">
+    <img src="DR.jpg" alt="Mountains" width="20px" height="50px">
+    <div class="desc">Dr.Stange</div>
+  </div>
+</div>
+
+
+
+<div class="responsive">
+  <div class="img">
+    <img src="BW.jpg" alt="Northern Lights" width="300" height="200">
+    <div class="desc">Black Widow</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="BP.jpg" alt="Northern Lights" width="300" height="200">
+    <div class="desc">Black Panther</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="SPIDY.jpg" alt="Northern Lights" width="300" height="200">
+    <div class="desc">Spider Man</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="HW.jpg" alt="Northern Lights" width="300" height="200">
+    <div class="desc">Hawkeye</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="ANTMAN.jpg" alt="Northern Lights" width="300" height="200">
+    <div class="desc">Ant Man</div>
+  </div>
+</div>
+
+
+
+<div class="responsive">
+  <div class="img">
+    <img src="GAMORA.jpg" alt="Northern Lights" width="300" height="200">
+    <div class="desc">Gamora</div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="img">
+    <img src="QUILL.jfif" alt="Northern Lights" width="300" height="200">
+    <div class="desc">Quill</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="CM.jfif" alt="Northern Lights" width="300" height="200">
+    <div class="desc">Captian Marvel</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="FALCON.jfif" alt="Northern Lights" width="300" height="200">
+    <div class="desc">Falcon</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="WANDA.jpg" alt="Northern Lights" width="300" height="200">
+    <div class="desc">Wanda</div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="img">
+    <img src="WM.jpg" alt="Northern Lights" width="300" height="200">
+    <div class="desc">War Machine</div>
+  </div>
+</div>
+
+
+<div class="clearfix"></div>
+
+
+<div id="myModal" class="modal">
+  <span class="close">×</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+
+<script>
+
+var modal = document.getElementById('myModal');
+
+
+var span = document.getElementsByClassName("close")[0];
+
+
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+
+
+var images = document.getElementsByTagName('img');
+var modalImg = document.getElementById("img01");
+
+var i;
+for (i = 0; i < images.length; i++) {
+   images[i].onclick = function(){
+       modal.style.display = "block";
+       modalImg.src = this.src;
+       modalImg.alt = this.alt;
+       captionText.innerHTML = this.nextElementSibling.innerHTML;
+   }
+}
+
+// Picture Slideshow
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000);    
+}
+
+</script>
+
+
+
+
+
+
+</body>
+</html> 
